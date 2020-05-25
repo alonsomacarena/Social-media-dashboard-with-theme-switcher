@@ -17,120 +17,186 @@
 </head>
 
 <body>
+    <main class="container">
 
-    <div class=""></div>
-
-    <header>
-        <h1 class=" ">Social Media Dashboard</h1>
-        <p>Total Followers: 23,004</p>
-        <div>
-        <span>Dark Mode</span>
-        <i class="fas fa-toggle-on"></i>
+        <h1 >Social Media Dashboard</h1>
+        <p class="sub-header">Total Followers: 23,004</p>
+        <div class="toggle">
+            <p class="toggleText">Dark Mode</p>
+            <button class="switch" id="switch"></button>
         </div>
-    </header>
 
-    <div>
-        <div>
-            <div>
+    <div class="cards">
+       <article class="facebook">
+            <div class="profile">
                 <i class="fab fa-facebook-square"></i>
                 <span>@nathanf</span>
             </div>
-            <p>1987</p>
-            <p>Followers</p>
-            <i class="fas fa-caret-up">12 Today</i>
-        </div>
+            <p class="number">1987</p>
+            <p class="follower">Followers</p>
+            <div class="today">
+                <i class="fas fa-caret-up"></i>
+                <span> 12 Today</span>
+            </div>
+       </article>
 
-        <div>
-            <div>
+
+        <article class="twitter">
+            <div class="profile">
                 <i class="fab fa-twitter"></i>
                 <span>@nathanf</span>
             </div>
-            <p>1044</p>
-            <p>Followers</p>
-            <i class="fas fa-caret-up">99 Today</i>
-        </div>
-
-        <div>
-            <div>
+            <p class="number">1044</p>
+            <p class="follower">Followers</p>
+            <div class="today">
+                <i class="fas fa-caret-up"></i>
+                <span> 99 Today</span>
+            </div>
+        </article>
+        
+        <article class="instagram">
+            <div class="profile">
                 <i class="fab fa-instagram"></i>
                 <span>@realnathanf</span>
             </div>
-            <p>11k</p>
-            <p>Followers</p>
-            <i class="fas fa-caret-up">1099 Today</i>
-        </div>
+            <p class="number">11k</p>
+            <p class="follower">Followers</p>
+            <div class="today">
+                <i class="fas fa-caret-up"></i>
+                <span> 1099 Today</span>
+            </div>
+        </article>
 
-        <div>
-            <div>
+        <article class="youtube">
+            <div class="profile">
                 <i class="fab fa-youtube"></i>
                 <span>Nathan F.</span>
             </div>
-            <p>8239</p>
-            <p>Subscribers</p>
-            <i class="fas fa-caret-down">144 Today</i>
-        </div>
+            <p class="number">8239</p>
+            <p class="follower">Subscribers</p>
+            <div class="today">
+                <i class="fas fa-caret-down"></i>
+                <span> 144 Today</span>
+            </div>
+        </article>
     </div>
  
     <h2>Overview - Today</h2>
 
-    <div>
-        <div>
-            <p>Page Views</p>
-            <p>87</p>
+    <aside class="cardsOverview">
+        <article class="smallCard-fa">
+            <div class="cardTop">
+            <p class="cardHeading">Page Views</p>
             <i class="fab fa-facebook-square"></i>
-            <i class="fas fa-caret-up">3%</i>
-        </div>
+            </div>
+            <div class="cardBottom">
+            <p class="cardNumber">87</p>
+            <div class="upDown">
+                <i class="fas fa-caret-up"></i>
+                <span> 3%</span>
+            </div>
+            </div>
+        </article>
 
-        <div>
-            <p>Likes</p>
-            <p>52</p>
+        <article class="smallCard-fa2">
+            <div class="cardTop">
+            <p class="cardHeading">Likes</p>
             <i class="fab fa-facebook-square"></i>
-            <i class="fas fa-caret-down">2%</i>
-        </div>
+            </div>
+            <div class="cardBottom">
+            <p class="cardNumber">52</p>
+            <div class="upDown">
+                <i class="fas fa-caret-down"></i>
+                <span> 2%</span>
+            </div>
+            </div>
+        </article>
 
-        <div>
-            <p>Likes</p>
-            <p>5462</p>
+        <article class="smallCard-inst">
+            <div class="cardTop">
+            <p class="cardHeading">Likes</p>
             <i class="fab fa-instagram"></i>
-            <i class="fas fa-caret-up">2257%</i>
-        </div>
+            </div>
+            <div class="cardBottom">
+            <p class="cardNumber">5462</p>
+            <div class="upDown">
+                <i class="fas fa-caret-up"></i>
+                <span> 2257%</span>
+            </div>
+            </div>
+        </article>
 
-        <div>
-            <p>Profile Views</p>
-            <p>52k</p>
+        <article class="smallCard-inst2">
+            <div class="cardTop">
+            <p class="cardHeading">Profile Views</p>
             <i class="fab fa-instagram"></i>
-            <i class="fas fa-caret-up">1375%</i>
-        </div>
+            </div>
+            <div class="cardBottom">
+            <p class="cardNumber">52k</p>
+            <div class="upDown">
+                <i class="fas fa-caret-up"></i>
+                <span> 1357%</span>
+            </div>
+            </div>
+        </article>
 
-        <div>
-            <p>Retweets</p>
-            <p>117</p>
+        <article class="smallCard-tw">
+            <div class="cardTop">
+            <p class="cardHeading">Retweets</p>
             <i class="fab fa-twitter"></i>
-            <i class="fas fa-caret-up">303%</i>
-        </div>
+            </div>
+            <div class="cardBottom">
+            <p class="cardNumber">117</p>
+            <div class="upDown">
+                <i class="fas fa-caret-up"></i>
+                <span> 303%</span>
+            </div>
+            </div>
+        </article>
 
-        <div>
-            <p>Likes</p>
-            <p>507</p>
+        <article class="smallCard-tw2">
+            <div class="cardTop">
+            <p class="cardHeading">Likes</p>
             <i class="fab fa-twitter"></i>
-            <i class="fas fa-caret-up">553%</i>
-        </div>
+            </div>
+            <div class="cardBottom">
+            <p class="cardNumber">507</p>
+            <div class="upDown">
+                <i class="fas fa-caret-up"></i>
+                <span> 553%</span>
+            </div>
+            </div>
+        </article>
 
-        <div>
-            <p>Likes</p>
-            <p>107</p>
+        <article class="smallCard-yt">
+            <div class="cardTop">
+            <p class="cardHeading">Likes</p>
             <i class="fab fa-youtube"></i>
-            <i class="fas fa-caret-down">19%</i>
-        </div>
+            </div>
+            <div class="cardBottom">
+            <p class="cardNumber">107</p>
+            <div class="upDown">
+                <i class="fas fa-caret-down"></i>
+                <span> 19%</span>
+            </div>
+            </div>
+        </article>
 
-        <div>
-            <p>Total Views</p>
-            <p>1407</p>
+        <article class="smallCard-yt2">
+            <div class="cardTop">
+            <p class="cardHeading">Total Views</p>
             <i class="fab fa-youtube"></i>
-            <i class="fas fa-caret-down">12%</i>
-        </div>
-    </div>
+            </div>
+            <div class="cardBottom">
+            <p class="cardNumber">1407</p>
+            <div class="upDown">
+                <i class="fas fa-caret-down"></i>
+                <span> 12%</span>
+            </div>
+            </div>
+        </article>
 
+</main>
 
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 

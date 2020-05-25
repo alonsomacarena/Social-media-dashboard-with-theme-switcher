@@ -1,0 +1,794 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+body {
+  background: white;
+  position: relative;
+  font-family: 'Inter', sans-serif;
+  margin: 0; }
+
+body:before {
+  margin: 0;
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 67%;
+  left: 0;
+  right: 0;
+  background: #f5f7ff;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  z-index: -1; }
+
+.container {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(4, 270px);
+  grid-template-rows: 80px 250px 50px 250px;
+  grid-gap: 20px;
+  padding: 3em 6em;
+  max-width: 1200px; }
+  .container h1 {
+    color: #1e202a;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    grid-column: 1 / span 3;
+    grid-row: 1;
+    justify-self: start;
+    align-self: flex-start; }
+  .container .sub-header {
+    color: #63687e;
+    font-size: 14px;
+    font-weight: 700;
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+    align-self: center;
+    letter-spacing: 0.2px; }
+  .container .toggle {
+    grid-column: 4;
+    grid-row: 1;
+    justify-self: end;
+    align-self: baseline;
+    color: #aeb3cb;
+    display: flex;
+    flex-flow: row;
+    justify-content: center; }
+    .container .toggle .toggleText {
+      padding-right: 10px;
+      padding-bottom: 10px;
+      font-weight: 700;
+      font-size: 14px;
+      align-self: center; }
+    .container .toggle .switch {
+      padding-bottom: 10px;
+      margin-left: 10px;
+      background-image: linear-gradient(to right, #378EE6, #3EDA81);
+      border-radius: 62em;
+      width: 40px;
+      height: 20px;
+      border: none;
+      position: relative;
+      cursor: pointer;
+      outline: none; }
+    .container .toggle .switch:after {
+      content: "";
+      display: block;
+      width: 16px;
+      height: 16px;
+      background-color: white;
+      position: absolute;
+      top: 2px;
+      bottom: 2px;
+      right: 2px;
+      left: unset;
+      border-radius: 100px; }
+  .container .cards {
+    grid-column: 1 / span 4;
+    grid-row: 2;
+    justify-self: start;
+    align-self: flex-start;
+    display: grid;
+    grid-template-columns: repeat(4, 270px);
+    grid-row: 250px;
+    grid-gap: 20px; }
+    .container .cards .facebook {
+      grid-column: 1;
+      box-sizing: border-box;
+      background-color: #f0f2fa;
+      width: 270px;
+      height: 250px;
+      border-radius: 5px;
+      border-top: 5px solid deepskyblue;
+      padding: 30px 50px; }
+      .container .cards .facebook .profile {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center; }
+        .container .cards .facebook .profile i {
+          color: deepskyblue;
+          font-size: 25px;
+          padding-right: 8px; }
+        .container .cards .facebook .profile span {
+          color: #63687e;
+          font-size: 14px;
+          font-weight: 700; }
+      .container .cards .facebook .number {
+        color: #1e202a;
+        font-size: 55px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-align: center;
+        padding-top: 20px; }
+      .container .cards .facebook .follower {
+        color: #63687e;
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: 400;
+        letter-spacing: 5px;
+        text-align: center; }
+      .container .cards .facebook .today {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        padding-top: 30px; }
+        .container .cards .facebook .today i {
+          color: #1db489;
+          font-size: 12px;
+          padding-right: 6px; }
+        .container .cards .facebook .today span {
+          color: #1db489;
+          font-size: 12px;
+          font-weight: 700; }
+    .container .cards .twitter {
+      grid-column: 2;
+      box-sizing: border-box;
+      background-color: #f0f2fa;
+      width: 270px;
+      height: 250px;
+      border-radius: 5px;
+      border-top: 5px solid #1ca0f2;
+      padding: 30px 50px; }
+      .container .cards .twitter .profile {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center; }
+        .container .cards .twitter .profile i {
+          color: #1ca0f2;
+          font-size: 25px;
+          padding-right: 8px; }
+        .container .cards .twitter .profile span {
+          color: #63687e;
+          font-size: 14px;
+          font-weight: 700; }
+      .container .cards .twitter .number {
+        color: #1e202a;
+        font-size: 55px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-align: center;
+        padding-top: 20px; }
+      .container .cards .twitter .follower {
+        color: #63687e;
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: 400;
+        letter-spacing: 5px;
+        text-align: center; }
+      .container .cards .twitter .today {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        padding-top: 30px; }
+        .container .cards .twitter .today i {
+          color: #1db489;
+          font-size: 12px;
+          padding-right: 6px; }
+        .container .cards .twitter .today span {
+          color: #1db489;
+          font-size: 12px;
+          font-weight: 700; }
+    .container .cards .instagram {
+      grid-column: 3;
+      box-sizing: border-box;
+      background-color: #f0f2fa;
+      width: 270px;
+      height: 250px;
+      border-radius: 5px;
+      border-top: 5px solid;
+      border-image: linear-gradient(to right, #FDC468, #DF4996);
+      border-image-slice: 1;
+      padding: 30px 50px; }
+      .container .cards .instagram .profile {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center; }
+        .container .cards .instagram .profile i {
+          color: #DF4996;
+          background: linear-gradient(to right, #FDC468, #DF4996);
+          -webkit-background-clip: text;
+          -moz-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          -moz-text-fill-color: transparent;
+          font-size: 25px;
+          padding-right: 8px; }
+        .container .cards .instagram .profile span {
+          color: #63687e;
+          font-size: 14px;
+          font-weight: 700; }
+      .container .cards .instagram .number {
+        color: #1e202a;
+        font-size: 55px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-align: center;
+        padding-top: 20px; }
+      .container .cards .instagram .follower {
+        color: #63687e;
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: 400;
+        letter-spacing: 5px;
+        text-align: center; }
+      .container .cards .instagram .today {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        padding-top: 30px; }
+        .container .cards .instagram .today i {
+          color: #1db489;
+          font-size: 12px;
+          padding-right: 6px; }
+        .container .cards .instagram .today span {
+          color: #1db489;
+          font-size: 12px;
+          font-weight: 700; }
+    .container .cards .youtube {
+      grid-column: 4;
+      box-sizing: border-box;
+      background-color: #f0f2fa;
+      width: 270px;
+      height: 250px;
+      border-radius: 5px;
+      border-top: 5px solid #c4032a;
+      padding: 30px 50px; }
+      .container .cards .youtube .profile {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center; }
+        .container .cards .youtube .profile i {
+          color: #c4032a;
+          font-size: 25px;
+          padding-right: 8px; }
+        .container .cards .youtube .profile span {
+          color: #63687e;
+          font-size: 14px;
+          font-weight: 700; }
+      .container .cards .youtube .number {
+        color: #1e202a;
+        font-size: 55px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-align: center;
+        padding-top: 20px; }
+      .container .cards .youtube .follower {
+        color: #63687e;
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: 400;
+        letter-spacing: 5px;
+        text-align: center; }
+      .container .cards .youtube .today {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        padding-top: 30px; }
+        .container .cards .youtube .today i {
+          color: #dc414c;
+          font-size: 12px;
+          padding-right: 6px; }
+        .container .cards .youtube .today span {
+          color: #dc414c;
+          font-size: 12px;
+          font-weight: 700; }
+  .container h2 {
+    color: #63687e;
+    font-size: 22px;
+    font-weight: 700;
+    grid-column: 1;
+    grid-row: 3;
+    justify-self: start;
+    align-self: flex-end;
+    padding-top: 15px;
+    letter-spacing: 0.2px; }
+  .container .cardsOverview {
+    grid-column: 1 / span 4;
+    grid-row: 4;
+    justify-self: start;
+    align-self: flex-start;
+    display: grid;
+    grid-template-columns: repeat(4, 270px);
+    grid-template-rows: repeat(2, 115px);
+    grid-gap: 20px; }
+    .container .cardsOverview .smallCard-fa {
+      grid-column: 1;
+      grid-row: 1;
+      box-sizing: border-box;
+      background-color: #f0f2fa;
+      width: 270px;
+      height: 115px;
+      border-radius: 5px;
+      padding: 20px 35px; }
+      .container .cardsOverview .smallCard-fa .cardTop {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center; }
+        .container .cardsOverview .smallCard-fa .cardTop .cardHeading {
+          color: #63687e;
+          font-size: 14px;
+          font-weight: 700;
+          grid-column: 1;
+          grid-row: 1;
+          justify-self: start;
+          align-self: center;
+          letter-spacing: 0.2px; }
+        .container .cardsOverview .smallCard-fa .cardTop i {
+          color: deepskyblue;
+          font-size: 25px;
+          padding-right: 8px; }
+      .container .cardsOverview .smallCard-fa .cardBottom {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 18px; }
+        .container .cardsOverview .smallCard-fa .cardBottom .cardNumber {
+          color: #1e202a;
+          font-size: 28px;
+          font-weight: 700;
+          letter-spacing: 1px;
+          text-align: left; }
+        .container .cardsOverview .smallCard-fa .cardBottom .upDown {
+          display: flex;
+          flex-flow: row nowrap;
+          justify-content: center;
+          align-items: center;
+          padding-top: 3px; }
+          .container .cardsOverview .smallCard-fa .cardBottom .upDown i {
+            color: #1db489;
+            font-size: 12px;
+            padding-right: 6px; }
+          .container .cardsOverview .smallCard-fa .cardBottom .upDown span {
+            color: #1db489;
+            font-size: 12px;
+            font-weight: 700; }
+    .container .cardsOverview .smallCard-fa2 {
+      grid-column: 2;
+      grid-row: 1;
+      box-sizing: border-box;
+      background-color: #f0f2fa;
+      width: 270px;
+      height: 115px;
+      border-radius: 5px;
+      padding: 20px 35px; }
+      .container .cardsOverview .smallCard-fa2 .cardTop {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center; }
+        .container .cardsOverview .smallCard-fa2 .cardTop .cardHeading {
+          color: #63687e;
+          font-size: 14px;
+          font-weight: 700;
+          grid-column: 1;
+          grid-row: 1;
+          justify-self: start;
+          align-self: center;
+          letter-spacing: 0.2px; }
+        .container .cardsOverview .smallCard-fa2 .cardTop i {
+          color: deepskyblue;
+          font-size: 25px;
+          padding-right: 8px; }
+      .container .cardsOverview .smallCard-fa2 .cardBottom {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 18px; }
+        .container .cardsOverview .smallCard-fa2 .cardBottom .cardNumber {
+          color: #1e202a;
+          font-size: 28px;
+          font-weight: 700;
+          letter-spacing: 1px;
+          text-align: left; }
+        .container .cardsOverview .smallCard-fa2 .cardBottom .upDown {
+          display: flex;
+          flex-flow: row nowrap;
+          justify-content: center;
+          align-items: center;
+          padding-top: 3px; }
+          .container .cardsOverview .smallCard-fa2 .cardBottom .upDown i {
+            color: #dc414c;
+            font-size: 12px;
+            padding-right: 6px; }
+          .container .cardsOverview .smallCard-fa2 .cardBottom .upDown span {
+            color: #dc414c;
+            font-size: 12px;
+            font-weight: 700; }
+    .container .cardsOverview .smallCard-inst {
+      grid-column: 3;
+      grid-row: 1;
+      box-sizing: border-box;
+      background-color: #f0f2fa;
+      width: 270px;
+      height: 115px;
+      border-radius: 5px;
+      padding: 20px 35px; }
+      .container .cardsOverview .smallCard-inst .cardTop {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center; }
+        .container .cardsOverview .smallCard-inst .cardTop .cardHeading {
+          color: #63687e;
+          font-size: 14px;
+          font-weight: 700;
+          grid-column: 1;
+          grid-row: 1;
+          justify-self: start;
+          align-self: center;
+          letter-spacing: 0.2px; }
+        .container .cardsOverview .smallCard-inst .cardTop i {
+          color: #DF4996;
+          background: linear-gradient(to right, #FDC468, #DF4996);
+          -webkit-background-clip: text;
+          -moz-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          -moz-text-fill-color: transparent;
+          font-size: 25px; }
+      .container .cardsOverview .smallCard-inst .cardBottom {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 18px; }
+        .container .cardsOverview .smallCard-inst .cardBottom .cardNumber {
+          color: #1e202a;
+          font-size: 28px;
+          font-weight: 700;
+          letter-spacing: 1px;
+          text-align: left; }
+        .container .cardsOverview .smallCard-inst .cardBottom .upDown {
+          display: flex;
+          flex-flow: row nowrap;
+          justify-content: center;
+          align-items: center;
+          padding-top: 3px; }
+          .container .cardsOverview .smallCard-inst .cardBottom .upDown i {
+            color: #1db489;
+            font-size: 12px;
+            padding-right: 6px; }
+          .container .cardsOverview .smallCard-inst .cardBottom .upDown span {
+            color: #1db489;
+            font-size: 12px;
+            font-weight: 700; }
+    .container .cardsOverview .smallCard-inst2 {
+      grid-column: 4;
+      grid-row: 1;
+      box-sizing: border-box;
+      background-color: #f0f2fa;
+      width: 270px;
+      height: 115px;
+      border-radius: 5px;
+      padding: 20px 35px; }
+      .container .cardsOverview .smallCard-inst2 .cardTop {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center; }
+        .container .cardsOverview .smallCard-inst2 .cardTop .cardHeading {
+          color: #63687e;
+          font-size: 14px;
+          font-weight: 700;
+          grid-column: 1;
+          grid-row: 1;
+          justify-self: start;
+          align-self: center;
+          letter-spacing: 0.2px; }
+        .container .cardsOverview .smallCard-inst2 .cardTop i {
+          color: #DF4996;
+          background: linear-gradient(to right, #FDC468, #DF4996);
+          -webkit-background-clip: text;
+          -moz-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          -moz-text-fill-color: transparent;
+          font-size: 25px; }
+      .container .cardsOverview .smallCard-inst2 .cardBottom {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 18px; }
+        .container .cardsOverview .smallCard-inst2 .cardBottom .cardNumber {
+          color: #1e202a;
+          font-size: 28px;
+          font-weight: 700;
+          letter-spacing: 1px;
+          text-align: left; }
+        .container .cardsOverview .smallCard-inst2 .cardBottom .upDown {
+          display: flex;
+          flex-flow: row nowrap;
+          justify-content: center;
+          align-items: center;
+          padding-top: 3px; }
+          .container .cardsOverview .smallCard-inst2 .cardBottom .upDown i {
+            color: #1db489;
+            font-size: 12px;
+            padding-right: 6px; }
+          .container .cardsOverview .smallCard-inst2 .cardBottom .upDown span {
+            color: #1db489;
+            font-size: 12px;
+            font-weight: 700; }
+    .container .cardsOverview .smallCard-tw {
+      grid-column: 1;
+      grid-row: 2;
+      box-sizing: border-box;
+      background-color: #f0f2fa;
+      width: 270px;
+      height: 115px;
+      border-radius: 5px;
+      padding: 20px 35px; }
+      .container .cardsOverview .smallCard-tw .cardTop {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center; }
+        .container .cardsOverview .smallCard-tw .cardTop .cardHeading {
+          color: #63687e;
+          font-size: 14px;
+          font-weight: 700;
+          grid-column: 1;
+          grid-row: 1;
+          justify-self: start;
+          align-self: center;
+          letter-spacing: 0.2px; }
+        .container .cardsOverview .smallCard-tw .cardTop i {
+          color: #1ca0f2;
+          font-size: 25px;
+          padding-right: 8px; }
+      .container .cardsOverview .smallCard-tw .cardBottom {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 18px; }
+        .container .cardsOverview .smallCard-tw .cardBottom .cardNumber {
+          color: #1e202a;
+          font-size: 28px;
+          font-weight: 700;
+          letter-spacing: 1px;
+          text-align: left; }
+        .container .cardsOverview .smallCard-tw .cardBottom .upDown {
+          display: flex;
+          flex-flow: row nowrap;
+          justify-content: center;
+          align-items: center;
+          padding-top: 3px; }
+          .container .cardsOverview .smallCard-tw .cardBottom .upDown i {
+            color: #1db489;
+            font-size: 12px;
+            padding-right: 6px; }
+          .container .cardsOverview .smallCard-tw .cardBottom .upDown span {
+            color: #1db489;
+            font-size: 12px;
+            font-weight: 700; }
+    .container .cardsOverview .smallCard-tw2 {
+      grid-column: 2;
+      grid-row: 2;
+      box-sizing: border-box;
+      background-color: #f0f2fa;
+      width: 270px;
+      height: 115px;
+      border-radius: 5px;
+      padding: 20px 35px; }
+      .container .cardsOverview .smallCard-tw2 .cardTop {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center; }
+        .container .cardsOverview .smallCard-tw2 .cardTop .cardHeading {
+          color: #63687e;
+          font-size: 14px;
+          font-weight: 700;
+          grid-column: 1;
+          grid-row: 1;
+          justify-self: start;
+          align-self: center;
+          letter-spacing: 0.2px; }
+        .container .cardsOverview .smallCard-tw2 .cardTop i {
+          color: #1ca0f2;
+          font-size: 25px;
+          padding-right: 8px; }
+      .container .cardsOverview .smallCard-tw2 .cardBottom {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 18px; }
+        .container .cardsOverview .smallCard-tw2 .cardBottom .cardNumber {
+          color: #1e202a;
+          font-size: 28px;
+          font-weight: 700;
+          letter-spacing: 1px;
+          text-align: left; }
+        .container .cardsOverview .smallCard-tw2 .cardBottom .upDown {
+          display: flex;
+          flex-flow: row nowrap;
+          justify-content: center;
+          align-items: center;
+          padding-top: 3px; }
+          .container .cardsOverview .smallCard-tw2 .cardBottom .upDown i {
+            color: #1db489;
+            font-size: 12px;
+            padding-right: 6px; }
+          .container .cardsOverview .smallCard-tw2 .cardBottom .upDown span {
+            color: #1db489;
+            font-size: 12px;
+            font-weight: 700; }
+    .container .cardsOverview .smallCard-yt {
+      grid-column: 3;
+      grid-row: 2;
+      box-sizing: border-box;
+      background-color: #f0f2fa;
+      width: 270px;
+      height: 115px;
+      border-radius: 5px;
+      padding: 20px 35px; }
+      .container .cardsOverview .smallCard-yt .cardTop {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center; }
+        .container .cardsOverview .smallCard-yt .cardTop .cardHeading {
+          color: #63687e;
+          font-size: 14px;
+          font-weight: 700;
+          grid-column: 1;
+          grid-row: 1;
+          justify-self: start;
+          align-self: center;
+          letter-spacing: 0.2px; }
+        .container .cardsOverview .smallCard-yt .cardTop i {
+          color: #c4032a;
+          font-size: 25px;
+          padding-right: 8px; }
+      .container .cardsOverview .smallCard-yt .cardBottom {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 18px; }
+        .container .cardsOverview .smallCard-yt .cardBottom .cardNumber {
+          color: #1e202a;
+          font-size: 28px;
+          font-weight: 700;
+          letter-spacing: 1px;
+          text-align: left; }
+        .container .cardsOverview .smallCard-yt .cardBottom .upDown {
+          display: flex;
+          flex-flow: row nowrap;
+          justify-content: center;
+          align-items: center;
+          padding-top: 3px; }
+          .container .cardsOverview .smallCard-yt .cardBottom .upDown i {
+            color: #dc414c;
+            font-size: 12px;
+            padding-right: 6px; }
+          .container .cardsOverview .smallCard-yt .cardBottom .upDown span {
+            color: #dc414c;
+            font-size: 12px;
+            font-weight: 700; }
+    .container .cardsOverview .smallCard-yt2 {
+      grid-column: 4;
+      grid-row: 2;
+      box-sizing: border-box;
+      background-color: #f0f2fa;
+      width: 270px;
+      height: 115px;
+      border-radius: 5px;
+      padding: 20px 35px; }
+      .container .cardsOverview .smallCard-yt2 .cardTop {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center; }
+        .container .cardsOverview .smallCard-yt2 .cardTop .cardHeading {
+          color: #63687e;
+          font-size: 14px;
+          font-weight: 700;
+          grid-column: 1;
+          grid-row: 1;
+          justify-self: start;
+          align-self: center;
+          letter-spacing: 0.2px; }
+        .container .cardsOverview .smallCard-yt2 .cardTop i {
+          color: #c4032a;
+          font-size: 25px;
+          padding-right: 8px; }
+      .container .cardsOverview .smallCard-yt2 .cardBottom {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 18px; }
+        .container .cardsOverview .smallCard-yt2 .cardBottom .cardNumber {
+          color: #1e202a;
+          font-size: 28px;
+          font-weight: 700;
+          letter-spacing: 1px;
+          text-align: left; }
+        .container .cardsOverview .smallCard-yt2 .cardBottom .upDown {
+          display: flex;
+          flex-flow: row nowrap;
+          justify-content: center;
+          align-items: center;
+          padding-top: 3px; }
+          .container .cardsOverview .smallCard-yt2 .cardBottom .upDown i {
+            color: #dc414c;
+            font-size: 12px;
+            padding-right: 6px; }
+          .container .cardsOverview .smallCard-yt2 .cardBottom .upDown span {
+            color: #dc414c;
+            font-size: 12px;
+            font-weight: 700; }
+  .container .facebook:hover {
+    background-color: #e2e4e4;
+    cursor: pointer; }
+  .container .twitter:hover {
+    background-color: #e2e4e4;
+    cursor: pointer; }
+  .container .instagram:hover {
+    background-color: #e2e4e4;
+    cursor: pointer; }
+  .container .youtube:hover {
+    background-color: #e2e4e4;
+    cursor: pointer; }
+  .container .smallCard-fa:hover {
+    background-color: #e2e4e4;
+    cursor: pointer; }
+  .container .smallCard-fa2:hover {
+    background-color: #e2e4e4;
+    cursor: pointer; }
+  .container .smallCard-inst:hover {
+    background-color: #e2e4e4;
+    cursor: pointer; }
+  .container .smallCard-inst2:hover {
+    background-color: #e2e4e4;
+    cursor: pointer; }
+  .container .smallCard-tw:hover {
+    background-color: #e2e4e4;
+    cursor: pointer; }
+  .container .smallCard-tw2:hover {
+    background-color: #e2e4e4;
+    cursor: pointer; }
+  .container .smallCard-yt:hover {
+    background-color: #e2e4e4;
+    cursor: pointer; }
+  .container .smallCard-yt2:hover {
+    background-color: #e2e4e4;
+    cursor: pointer; }
+
+/*@media only screen and (max-width: 767px){}
+
+@media (min-width: 1024px) and (max-width: 1600px){}*/
