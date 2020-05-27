@@ -25,7 +25,6 @@ $subtext: hsl(228, 12%, 44%);
 @mixin cardGeneral {
     box-sizing: border-box;
     background-color: $bg-card;
-    width: 270px;
     height: 250px;
     border-radius: 5px;
     padding: 30px 50px;
@@ -72,7 +71,6 @@ $subtext: hsl(228, 12%, 44%);
 @mixin smallCardGeneral{
     box-sizing: border-box;
     background-color: $bg-card;
-    width: 270px;
     height: 115px;
     border-radius: 5px;
     padding: 20px 35px;
@@ -204,6 +202,7 @@ body:before {
         .facebook{
             grid-column: 1;
             @include cardGeneral;
+            width: 270px;
             border-top: 5px solid $color-facebook;
             .profile{
                 @include profileFlex;
@@ -258,11 +257,11 @@ body:before {
                 @include profileFlex;
                 padding-top: 30px;
                 i{
-                    color:$color-twitter;
+                    color:$color-up;
                     @include todayIcon;
                 }
                 span{
-                    color:$color-twitter;
+                    color:$color-up;
                     @include todaySpan;
                 }
             }
@@ -359,6 +358,7 @@ body:before {
         .smallCard-fa{
             grid-column: 1;
             grid-row: 1;
+            width: 270px;
             @include smallCardGeneral;
             .cardTop{
                 @include smallCardFlex;
@@ -631,10 +631,6 @@ body:before {
              }
          }
     }
-
-
-
-
 .facebook:hover{
     @include hoverState;
 }
@@ -672,13 +668,116 @@ body:before {
     @include hoverState;
 }
 
-
-
 }
 
-
-
-
-/*@media only screen and (max-width: 767px){}
-
-@media (min-width: 1024px) and (max-width: 1600px){}*/
+@media only screen and (max-width: 375px){
+    body:before {
+        bottom: 92.5%;
+      }
+    .container {
+        grid-template-columns: 320px;
+        grid-template-rows: 100px repeat(4, 250px) 50px 1060px;
+        padding: 2em 1.7em;
+        max-width: 350px;
+        .sub-header{
+            padding-bottom: 25px;
+        }
+        .toggle{
+            grid-column: 1;
+            grid-row: 1;
+            justify-self: stretch;
+            align-self: flex-end;
+            border-top: 0.5px solid $subtext;
+            .toggleText{
+                padding-right: 170px;
+                margin-top: 10px;
+                color: $subtext;
+            }
+            .switch{
+                width: 45px;
+                margin-top: 10px;
+            }
+        }
+        .cards{
+            grid-column: 1;
+            grid-row: 2 / span 5;
+            grid-template-columns: 320px;
+            grid-template-rows: repeat(4,250px);
+            .facebook{
+                grid-column: 1;
+                grid-row: 1;
+                width: 320px;
+                height: 250px;
+            }
+            .twitter{
+                grid-column: 1;
+                grid-row: 2;
+                width: 320px;
+                height: 250px;
+            }
+            .instagram{
+                grid-column: 1;
+                grid-row: 3;
+                width: 320px;
+                height: 250px;
+            }
+            .youtube{
+                grid-column: 1;
+                grid-row: 4;
+                width: 320px;
+                height: 250px;
+            }
+        }
+        h2{
+            font-size: 25px;
+            grid-column: 1;
+            grid-row: 6;
+        }
+        .cardsOverview{
+            grid-column: 1;
+            grid-row: 7;
+            grid-template-columns: 320px;
+            grid-template-rows: repeat(8, 115px);
+            .smallCard-fa{
+                grid-column: 1;
+                grid-row: 1;
+                width: 320px;
+            }
+             .smallCard-fa2{
+                grid-column: 1;
+                grid-row: 2;
+                width: 320px;
+             } 
+             .smallCard-inst{
+                grid-column: 1;
+                grid-row: 3;
+                width: 320px;
+             }
+             .smallCard-inst2{
+                grid-column: 1;
+                grid-row: 4;
+                width: 320px;
+             }
+             .smallCard-tw{
+                grid-column: 1;
+                grid-row: 5;
+                width: 320px;
+             }
+             .smallCard-tw2{
+                grid-column: 1;
+                grid-row: 6;
+                width: 320px;
+             }
+             .smallCard-yt{
+                grid-column: 1;
+                grid-row: 7;
+                width: 320px;
+             }
+             .smallCard-yt2{
+                grid-column: 1;
+                grid-row: 8;
+                width: 320px;
+             }
+        }
+}
+}
