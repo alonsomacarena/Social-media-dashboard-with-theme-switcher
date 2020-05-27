@@ -2,21 +2,42 @@
     margin: 0;
     padding: 0; }
 
-$color-facebook: hsl(195, 100%, 50%);
-$color-twitter:hsl(203, 89%, 53%);
-$color-instagram: linear-gradient(to right, #FDC468, #DF4996);
-$color-youtube: hsl(348, 97%, 39%);
-$color-up:hsl(163, 72%, 41%);
-$color-down: hsl(356, 69%, 56%);
-$bg-card:hsl(227, 47%, 96%);
-$bg-body: hsl(0%, 0%, 100%);
-$bg-hover:hsl(180, 2%, 89%);
-$main-text:hsl(230, 17%, 14%);
-$subtext: hsl(228, 12%, 44%);
+//light-mode styles
+:root{
+    --color-facebook: hsl(195, 100%, 50%);
+    --color-twitter:hsl(203, 89%, 53%);
+    --color-instagram: linear-gradient(to right, #FDC468, #DF4996);
+    --color-youtube: hsl(348, 97%, 39%);
+    --color-up:hsl(163, 72%, 41%);
+    --color-down: hsl(356, 69%, 56%);
+    --bg-card:hsl(227, 47%, 96%);
+    --bg-body: hsl(0%, 0%, 100%);
+    --bg-body-top: hsl(225, 100%, 98%);
+    --bg-hover:hsl(180, 2%, 89%);
+    --main-text:hsl(230, 17%, 14%);
+    --subtext: hsl(228, 12%, 44%);
+    --toggler:hsl(230, 22%, 74%);
+}
+//dark-mode styles
+[data-theme="dark"]{
+    --color-facebook: hsl(195, 100%, 50%);
+    --color-twitter:hsl(203, 89%, 53%);
+    --color-instagram: linear-gradient(to right, #FDC468, #DF4996);
+    --color-youtube: hsl(348, 97%, 39%);
+    --color-up:hsl(163, 72%, 41%);
+    --color-down: hsl(356, 69%, 56%);
+    --subtext: hsl(228, 12%, 44%);
+    --bg-card:hsl(228, 28%, 20%);
+    --bg-body: hsl(230, 17%, 14%);
+    --bg-body-top: hsl(232, 19%, 15%);
+    --bg-hover:hsl(228, 27%, 33%);
+    --main-text: white;
+    --toggler: linear-gradient(to right, rgb(55, 142, 230), rgb(62, 218, 129));
+}
 
 @mixin iconInstagram {
     color: #DF4996;
-    background: $color-instagram;
+    background: var(--color-instagram);
     -webkit-background-clip: text;
     -moz-background-clip: text;
     -webkit-text-fill-color: transparent; 
@@ -24,7 +45,6 @@ $subtext: hsl(228, 12%, 44%);
 }
 @mixin cardGeneral {
     box-sizing: border-box;
-    background-color: $bg-card;
     height: 250px;
     border-radius: 5px;
     padding: 30px 50px;
@@ -40,20 +60,20 @@ $subtext: hsl(228, 12%, 44%);
     padding-right: 8px;
 }
 @mixin spanCard {
-    color: $subtext;
+    color: var(--subtext);
     font-size: 14px;
     font-weight: 700;
 }
 @mixin numberCard {
-    color: $main-text;
     font-size: 55px;
     font-weight: 700;
     letter-spacing: 1px;
     text-align: center;
     padding-top: 20px;
+    color: var(--main-text);
 }
 @mixin followerCard {
-    color: $subtext;
+    color: var(--subtext);
     font-size: 14px;
     text-transform: uppercase;
     font-weight: 400;
@@ -70,7 +90,7 @@ $subtext: hsl(228, 12%, 44%);
 }
 @mixin smallCardGeneral{
     box-sizing: border-box;
-    background-color: $bg-card;
+    background-color: var(--bg-card);
     height: 115px;
     border-radius: 5px;
     padding: 20px 35px;
@@ -82,7 +102,7 @@ $subtext: hsl(228, 12%, 44%);
     align-items: center;
 }
 @mixin cardHeading {
-    color:  $subtext;
+    color:  var(--subtext);
     font-size: 14px;
     font-weight: 700;
     justify-self: start;
@@ -90,19 +110,19 @@ $subtext: hsl(228, 12%, 44%);
     letter-spacing: 0.2px;
 }
 @mixin smallCardNumber {
-    color:$main-text;
+    color:var(--main-text);
     font-size: 28px;
     font-weight: 700;
     letter-spacing: 1px;
     text-align: left;
 }
 @mixin hoverState {
-    background-color: $bg-hover;
+    background-color: var(--bg-hover);
     cursor: pointer;
 }
 
 body {
-  background: $bg-body;
+  background-color:var(--bg-body);
   position: relative;
   font-family: 'Inter', sans-serif;
   margin: 0;
@@ -115,7 +135,7 @@ body:before {
   bottom: 67%;
   left: 0;
   right: 0;
-  background:  hsl(225, 100%, 98%);
+  background: var(--bg-body-top);
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   z-index:-1;
@@ -129,7 +149,7 @@ body:before {
     padding: 3em 6em;
     max-width: 1200px; 
     h1{
-        color: $main-text;
+        color: var(--main-text);
         font-size: 25px;
         font-weight: 700;
         letter-spacing: 1px;
@@ -139,7 +159,7 @@ body:before {
         align-self: flex-start;
     }
     .sub-header{
-        color: $subtext;
+        color: var(--subtext);
         font-size: 14px;
         font-weight: 700;
         grid-column: 1;
@@ -148,48 +168,69 @@ body:before {
         align-self: center;
         letter-spacing: 0.2px;
     }
-    .toggle{
+    .theme-switch-wrapper {
         grid-column: 4;
         grid-row: 1;
         justify-self: end;
         align-self: baseline;
-        color: hsl(230, 22%, 74%);
+        color: var(--subtext);
         display: flex;
         flex-flow: row;
         justify-content: center;
-        .toggleText{
+        p {
             padding-right: 10px;
-            padding-bottom: 10px;
             font-weight: 700;
             font-size: 14px;
             align-self: center;
         }
-        .switch{
-            padding-bottom: 10px;
-            margin-left: 10px;
-            background-image: linear-gradient(to right, #378EE6, #3EDA81);
-            border-radius: 62em;
-            width: 40px;
-            height: 20px;
-            border: none;
-            position: relative;
-            cursor: pointer;
-            outline: none;
-        }
-        .switch:after{
-            content: "";
-            display: block;
-            width: 16px;
-            height: 16px;
-            background-color: white;
-            position: absolute;
-            top: 2px;
-            bottom: 2px;
-            right: 2px;
-            left: unset;
-            border-radius: 100px;
-        }
-    }
+      }
+      .theme-switch {
+        padding-bottom: 10px;
+        margin-left: 10px;
+        background-image: var(--toggler);
+        border-radius: 62em;
+        border: none;
+        outline: none;
+        display: inline-block;
+        height: 20px;
+        position: relative;
+        width: 60px;
+      }
+      .theme-switch input {
+        display:none;
+      } 
+      .slider {
+        background-color: var(--toggler);
+        bottom: 0;
+        cursor: pointer;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transition: .4s;
+      }  
+      .slider:before {
+        background-color: var(--bg-body-top);
+        bottom: 4px;
+        content: "";
+        height: 22px;
+        left: 4px;
+        position: absolute;
+        transition: .4s;
+        width: 23px;
+      }     
+      input:checked + .slider {
+        background-color: var(--toggler);
+      }     
+      input:checked + .slider:before {
+        transform: translateX(26px);
+      }    
+      .slider.round {
+        border-radius: 34px;
+      }     
+      .slider.round:before {
+        border-radius: 50%;
+      }
     .cards{
         grid-column: 1 / span 4;
         grid-row: 2;
@@ -202,12 +243,13 @@ body:before {
         .facebook{
             grid-column: 1;
             @include cardGeneral;
+            background-color: var(--bg-card);
             width: 270px;
-            border-top: 5px solid $color-facebook;
+            border-top: 5px solid var(--color-facebook);
             .profile{
                 @include profileFlex;
                 i{
-                    color: $color-facebook;
+                    color: var(--color-facebook);
                     @include iconCard;
                 }
                 span{
@@ -224,11 +266,11 @@ body:before {
                 @include profileFlex;
                 padding-top: 30px;
                 i{
-                    color:$color-up;
+                    color:var(--color-up);
                     @include todayIcon;
                 }
                 span{
-                    color:$color-up;
+                    color:var(--color-up);
                     @include todaySpan;
                 }
             }
@@ -236,11 +278,12 @@ body:before {
         .twitter{
             grid-column: 2;
             @include cardGeneral;
-            border-top: 5px solid $color-twitter;
+            background-color: var(--bg-card);
+            border-top: 5px solid var(--color-twitter);
             .profile{
                 @include profileFlex;
                 i{
-                    color: $color-twitter;
+                    color: var(--color-twitter);
                     @include iconCard;
                 }
                 span{
@@ -249,6 +292,7 @@ body:before {
             }
             .number{
                 @include numberCard;
+                color: var(--main-text);
             }
             .follower{
                 @include followerCard;
@@ -257,11 +301,11 @@ body:before {
                 @include profileFlex;
                 padding-top: 30px;
                 i{
-                    color:$color-up;
+                    color:var(--color-up);
                     @include todayIcon;
                 }
                 span{
-                    color:$color-up;
+                    color:var(--color-up);
                     @include todaySpan;
                 }
             }
@@ -269,8 +313,9 @@ body:before {
         .instagram{
             grid-column: 3;
             @include cardGeneral;
+            background-color: var(--bg-card);
             border-top: 5px solid;
-            border-image: $color-instagram;
+            border-image: var(--color-instagram);
             border-image-slice: 1;
             .profile{
                 @include profileFlex;
@@ -284,6 +329,7 @@ body:before {
             }
             .number{
                 @include numberCard;
+                color:var(--main-text);
             }
             .follower{
                 @include followerCard;
@@ -292,11 +338,11 @@ body:before {
                 @include profileFlex;
                 padding-top: 30px;
                 i{
-                    color:$color-up;
+                    color:var(--color-up);
                     @include todayIcon;
                 }
                 span{
-                    color:$color-up;
+                    color:var(--color-up);
                     @include todaySpan;
                 }
             }
@@ -304,11 +350,12 @@ body:before {
         .youtube{
             grid-column: 4;
             @include cardGeneral;
-            border-top: 5px solid $color-youtube;
+            background-color: var(--bg-card);
+            border-top: 5px solid var(--color-youtube);
             .profile{
                 @include profileFlex;
                 i{
-                    color: $color-youtube;
+                    color: var(--color-youtube);
                     @include iconCard;
                 }
                 span{
@@ -317,6 +364,7 @@ body:before {
             }
             .number{
                 @include numberCard;
+                color: var(--main-text);
             }
             .follower{
                 @include followerCard;
@@ -325,18 +373,18 @@ body:before {
                 @include profileFlex;
                 padding-top: 30px;
                 i{
-                    color:$color-down;
+                    color:var(--color-down);
                     @include todayIcon;
                 }
                 span{
-                    color:$color-down;
+                    color:var(--color-down);
                     @include todaySpan;
                 }
             }
         }
     }
     h2{
-        color:  $subtext;
+        color:  var(--subtext);
         font-size: 22px;
         font-weight: 700;
         grid-column: 1;
@@ -368,7 +416,7 @@ body:before {
                     grid-row: 1;
                 }
                 i{
-                    color: $color-facebook;
+                    color: var(--color-facebook);
                     @include iconCard;
                 }
             }
@@ -382,11 +430,11 @@ body:before {
                     @include profileFlex;
                     padding-top: 3px;
                     i{
-                        color:$color-up;
+                        color:var(--color-up);
                         @include todayIcon;
                     }
                     span{
-                        color:$color-up;
+                        color:var(--color-up);
                         @include todaySpan;
                     }
                 }
@@ -402,7 +450,7 @@ body:before {
                     @include cardHeading;
                 }
                 i{
-                    color: $color-facebook;
+                    color: var(--color-facebook);
                     @include iconCard;
                 }
             }
@@ -416,11 +464,11 @@ body:before {
                     @include profileFlex;
                     padding-top: 3px;
                     i{
-                        color:$color-down;
+                        color:var(--color-down);
                         @include todayIcon;
                     }
                     span{
-                        color: $color-down;
+                        color: var(--color-down);
                         @include todaySpan;
                     }
                 }
@@ -450,11 +498,11 @@ body:before {
                     @include profileFlex;
                     padding-top: 3px;
                     i{
-                        color: $color-up;
+                        color: var(--color-up);
                         @include todayIcon;
                     }
                     span{
-                        color:$color-up;
+                        color:var(--color-up);
                         @include todaySpan;
                     }
                 }
@@ -484,11 +532,11 @@ body:before {
                     @include profileFlex;
                     padding-top: 3px;
                     i{
-                        color: $color-up;
+                        color: var(--color-up);
                         @include todayIcon;
                     }
                     span{
-                        color:$color-up;
+                        color:var(--color-up);
                         @include todaySpan;
                     }
                 }
@@ -504,7 +552,7 @@ body:before {
                     @include cardHeading;
                 }
                 i{
-                    color: $color-twitter;
+                    color:var(--color-twitter);
                     @include iconCard;
                 }
             }
@@ -518,11 +566,11 @@ body:before {
                     @include profileFlex;
                     padding-top: 3px;
                     i{
-                        color: $color-up;
+                        color: var(--color-up);
                         @include todayIcon;
                     }
                     span{
-                        color:$color-up;
+                        color:var(--color-up);
                         @include todaySpan;
                     }
                 }
@@ -538,7 +586,7 @@ body:before {
                     @include cardHeading;
                 }
                 i{
-                    color: $color-twitter;
+                    color: var(--color-twitter);
                     @include iconCard;
                 }
             }
@@ -552,11 +600,11 @@ body:before {
                     @include profileFlex;
                     padding-top: 3px;
                     i{
-                        color: $color-up;
+                        color: var(--color-up);
                         @include todayIcon;
                     }
                     span{
-                        color:$color-up;
+                        color:var(--color-up);
                         @include todaySpan;
                     }
                 }
@@ -572,7 +620,7 @@ body:before {
                     @include cardHeading;
                 }
                 i{
-                    color: $color-youtube;
+                    color: var(--color-youtube);
                     @include iconCard;
                 }
             }
@@ -586,11 +634,11 @@ body:before {
                     @include profileFlex;
                     padding-top: 3px;
                     i{
-                        color: $color-down;
+                        color: var(--color-down);
                         @include todayIcon;
                     }
                     span{
-                        color:$color-down;
+                        color:var(--color-down);
                         @include todaySpan;
                     }
                 }
@@ -606,7 +654,7 @@ body:before {
                     @include cardHeading;
                 }
                 i{
-                    color: $color-youtube;
+                    color: var(--color-youtube);
                     @include iconCard;
                 }
             }
@@ -620,11 +668,11 @@ body:before {
                     @include profileFlex;
                     padding-top: 3px;
                     i{
-                        color: $color-down;
+                        color: var(--color-down);
                         @include todayIcon;
                     }
                     span{
-                        color:$color-down;
+                        color:var(--color-down);
                         @include todaySpan;
                     }
                 }
@@ -667,7 +715,11 @@ body:before {
 .smallCard-yt2:hover{
     @include hoverState;
 }
-
+}
+.attribution{
+    color: var(--main-text);
+    font-size: 15px;
+    text-align: center;
 }
 
 @media only screen and (max-width: 375px){
@@ -682,22 +734,21 @@ body:before {
         .sub-header{
             padding-bottom: 25px;
         }
-        .toggle{
+        .theme-switch-wrapper {
             grid-column: 1;
             grid-row: 1;
             justify-self: stretch;
             align-self: flex-end;
-            border-top: 0.5px solid $subtext;
-            .toggleText{
+            border-top: 0.5px solid var(--subtext);
+            p {
                 padding-right: 170px;
                 margin-top: 10px;
-                color: $subtext;
+                color: var(--subtext);
             }
-            .switch{
-                width: 45px;
-                margin-top: 10px;
-            }
-        }
+          }
+          .theme-switch {
+            margin-top: 10px;
+          }
         .cards{
             grid-column: 1;
             grid-row: 2 / span 5;

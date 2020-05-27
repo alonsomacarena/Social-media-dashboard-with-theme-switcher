@@ -2,8 +2,38 @@
   margin: 0;
   padding: 0; }
 
+:root {
+  --color-facebook: hsl(195, 100%, 50%);
+  --color-twitter:hsl(203, 89%, 53%);
+  --color-instagram: linear-gradient(to right, #FDC468, #DF4996);
+  --color-youtube: hsl(348, 97%, 39%);
+  --color-up:hsl(163, 72%, 41%);
+  --color-down: hsl(356, 69%, 56%);
+  --bg-card:hsl(227, 47%, 96%);
+  --bg-body: hsl(0%, 0%, 100%);
+  --bg-body-top: hsl(225, 100%, 98%);
+  --bg-hover:hsl(180, 2%, 89%);
+  --main-text:hsl(230, 17%, 14%);
+  --subtext: hsl(228, 12%, 44%);
+  --toggler:hsl(230, 22%, 74%); }
+
+[data-theme="dark"] {
+  --color-facebook: hsl(195, 100%, 50%);
+  --color-twitter:hsl(203, 89%, 53%);
+  --color-instagram: linear-gradient(to right, #FDC468, #DF4996);
+  --color-youtube: hsl(348, 97%, 39%);
+  --color-up:hsl(163, 72%, 41%);
+  --color-down: hsl(356, 69%, 56%);
+  --subtext: hsl(228, 12%, 44%);
+  --bg-card:hsl(228, 28%, 20%);
+  --bg-body: hsl(230, 17%, 14%);
+  --bg-body-top: hsl(232, 19%, 15%);
+  --bg-hover:hsl(228, 27%, 33%);
+  --main-text: white;
+  --toggler: linear-gradient(to right, rgb(55, 142, 230), rgb(62, 218, 129)); }
+
 body {
-  background: white;
+  background-color: var(--bg-body);
   position: relative;
   font-family: 'Inter', sans-serif;
   margin: 0; }
@@ -16,7 +46,7 @@ body:before {
   bottom: 67%;
   left: 0;
   right: 0;
-  background: #f5f7ff;
+  background: var(--bg-body-top);
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   z-index: -1; }
@@ -30,7 +60,7 @@ body:before {
   padding: 3em 6em;
   max-width: 1200px; }
   .container h1 {
-    color: #1e202a;
+    color: var(--main-text);
     font-size: 25px;
     font-weight: 700;
     letter-spacing: 1px;
@@ -39,7 +69,7 @@ body:before {
     justify-self: start;
     align-self: flex-start; }
   .container .sub-header {
-    color: #63687e;
+    color: var(--subtext);
     font-size: 14px;
     font-weight: 700;
     grid-column: 1;
@@ -47,44 +77,59 @@ body:before {
     justify-self: start;
     align-self: center;
     letter-spacing: 0.2px; }
-  .container .toggle {
+  .container .theme-switch-wrapper {
     grid-column: 4;
     grid-row: 1;
     justify-self: end;
     align-self: baseline;
-    color: #aeb3cb;
+    color: var(--subtext);
     display: flex;
     flex-flow: row;
     justify-content: center; }
-    .container .toggle .toggleText {
+    .container .theme-switch-wrapper p {
       padding-right: 10px;
-      padding-bottom: 10px;
       font-weight: 700;
       font-size: 14px;
       align-self: center; }
-    .container .toggle .switch {
-      padding-bottom: 10px;
-      margin-left: 10px;
-      background-image: linear-gradient(to right, #378EE6, #3EDA81);
-      border-radius: 62em;
-      width: 40px;
-      height: 20px;
-      border: none;
-      position: relative;
-      cursor: pointer;
-      outline: none; }
-    .container .toggle .switch:after {
-      content: "";
-      display: block;
-      width: 16px;
-      height: 16px;
-      background-color: white;
-      position: absolute;
-      top: 2px;
-      bottom: 2px;
-      right: 2px;
-      left: unset;
-      border-radius: 100px; }
+  .container .theme-switch {
+    padding-bottom: 10px;
+    margin-left: 10px;
+    background-image: var(--toggler);
+    border-radius: 62em;
+    border: none;
+    outline: none;
+    display: inline-block;
+    height: 20px;
+    position: relative;
+    width: 60px; }
+  .container .theme-switch input {
+    display: none; }
+  .container .slider {
+    background-color: var(--toggler);
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s; }
+  .container .slider:before {
+    background-color: var(--bg-body-top);
+    bottom: 4px;
+    content: "";
+    height: 22px;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 23px; }
+  .container input:checked + .slider {
+    background-color: var(--toggler); }
+  .container input:checked + .slider:before {
+    transform: translateX(26px); }
+  .container .slider.round {
+    border-radius: 34px; }
+  .container .slider.round:before {
+    border-radius: 50%; }
   .container .cards {
     grid-column: 1 / span 4;
     grid-row: 2;
@@ -97,34 +142,34 @@ body:before {
     .container .cards .facebook {
       grid-column: 1;
       box-sizing: border-box;
-      background-color: #f0f2fa;
       height: 250px;
       border-radius: 5px;
       padding: 30px 50px;
+      background-color: var(--bg-card);
       width: 270px;
-      border-top: 5px solid deepskyblue; }
+      border-top: 5px solid var(--color-facebook); }
       .container .cards .facebook .profile {
         display: flex;
         flex-flow: row nowrap;
         justify-content: center;
         align-items: center; }
         .container .cards .facebook .profile i {
-          color: deepskyblue;
+          color: var(--color-facebook);
           font-size: 25px;
           padding-right: 8px; }
         .container .cards .facebook .profile span {
-          color: #63687e;
+          color: var(--subtext);
           font-size: 14px;
           font-weight: 700; }
       .container .cards .facebook .number {
-        color: #1e202a;
         font-size: 55px;
         font-weight: 700;
         letter-spacing: 1px;
         text-align: center;
-        padding-top: 20px; }
+        padding-top: 20px;
+        color: var(--main-text); }
       .container .cards .facebook .follower {
-        color: #63687e;
+        color: var(--subtext);
         font-size: 14px;
         text-transform: uppercase;
         font-weight: 400;
@@ -137,43 +182,44 @@ body:before {
         align-items: center;
         padding-top: 30px; }
         .container .cards .facebook .today i {
-          color: #1db489;
+          color: var(--color-up);
           font-size: 12px;
           padding-right: 6px; }
         .container .cards .facebook .today span {
-          color: #1db489;
+          color: var(--color-up);
           font-size: 12px;
           font-weight: 700; }
     .container .cards .twitter {
       grid-column: 2;
       box-sizing: border-box;
-      background-color: #f0f2fa;
       height: 250px;
       border-radius: 5px;
       padding: 30px 50px;
-      border-top: 5px solid #1ca0f2; }
+      background-color: var(--bg-card);
+      border-top: 5px solid var(--color-twitter); }
       .container .cards .twitter .profile {
         display: flex;
         flex-flow: row nowrap;
         justify-content: center;
         align-items: center; }
         .container .cards .twitter .profile i {
-          color: #1ca0f2;
+          color: var(--color-twitter);
           font-size: 25px;
           padding-right: 8px; }
         .container .cards .twitter .profile span {
-          color: #63687e;
+          color: var(--subtext);
           font-size: 14px;
           font-weight: 700; }
       .container .cards .twitter .number {
-        color: #1e202a;
         font-size: 55px;
         font-weight: 700;
         letter-spacing: 1px;
         text-align: center;
-        padding-top: 20px; }
+        padding-top: 20px;
+        color: var(--main-text);
+        color: var(--main-text); }
       .container .cards .twitter .follower {
-        color: #63687e;
+        color: var(--subtext);
         font-size: 14px;
         text-transform: uppercase;
         font-weight: 400;
@@ -186,22 +232,22 @@ body:before {
         align-items: center;
         padding-top: 30px; }
         .container .cards .twitter .today i {
-          color: #1db489;
+          color: var(--color-up);
           font-size: 12px;
           padding-right: 6px; }
         .container .cards .twitter .today span {
-          color: #1db489;
+          color: var(--color-up);
           font-size: 12px;
           font-weight: 700; }
     .container .cards .instagram {
       grid-column: 3;
       box-sizing: border-box;
-      background-color: #f0f2fa;
       height: 250px;
       border-radius: 5px;
       padding: 30px 50px;
+      background-color: var(--bg-card);
       border-top: 5px solid;
-      border-image: linear-gradient(to right, #FDC468, #DF4996);
+      border-image: var(--color-instagram);
       border-image-slice: 1; }
       .container .cards .instagram .profile {
         display: flex;
@@ -210,7 +256,7 @@ body:before {
         align-items: center; }
         .container .cards .instagram .profile i {
           color: #DF4996;
-          background: linear-gradient(to right, #FDC468, #DF4996);
+          background: var(--color-instagram);
           -webkit-background-clip: text;
           -moz-background-clip: text;
           -webkit-text-fill-color: transparent;
@@ -218,18 +264,19 @@ body:before {
           font-size: 25px;
           padding-right: 8px; }
         .container .cards .instagram .profile span {
-          color: #63687e;
+          color: var(--subtext);
           font-size: 14px;
           font-weight: 700; }
       .container .cards .instagram .number {
-        color: #1e202a;
         font-size: 55px;
         font-weight: 700;
         letter-spacing: 1px;
         text-align: center;
-        padding-top: 20px; }
+        padding-top: 20px;
+        color: var(--main-text);
+        color: var(--main-text); }
       .container .cards .instagram .follower {
-        color: #63687e;
+        color: var(--subtext);
         font-size: 14px;
         text-transform: uppercase;
         font-weight: 400;
@@ -242,43 +289,44 @@ body:before {
         align-items: center;
         padding-top: 30px; }
         .container .cards .instagram .today i {
-          color: #1db489;
+          color: var(--color-up);
           font-size: 12px;
           padding-right: 6px; }
         .container .cards .instagram .today span {
-          color: #1db489;
+          color: var(--color-up);
           font-size: 12px;
           font-weight: 700; }
     .container .cards .youtube {
       grid-column: 4;
       box-sizing: border-box;
-      background-color: #f0f2fa;
       height: 250px;
       border-radius: 5px;
       padding: 30px 50px;
-      border-top: 5px solid #c4032a; }
+      background-color: var(--bg-card);
+      border-top: 5px solid var(--color-youtube); }
       .container .cards .youtube .profile {
         display: flex;
         flex-flow: row nowrap;
         justify-content: center;
         align-items: center; }
         .container .cards .youtube .profile i {
-          color: #c4032a;
+          color: var(--color-youtube);
           font-size: 25px;
           padding-right: 8px; }
         .container .cards .youtube .profile span {
-          color: #63687e;
+          color: var(--subtext);
           font-size: 14px;
           font-weight: 700; }
       .container .cards .youtube .number {
-        color: #1e202a;
         font-size: 55px;
         font-weight: 700;
         letter-spacing: 1px;
         text-align: center;
-        padding-top: 20px; }
+        padding-top: 20px;
+        color: var(--main-text);
+        color: var(--main-text); }
       .container .cards .youtube .follower {
-        color: #63687e;
+        color: var(--subtext);
         font-size: 14px;
         text-transform: uppercase;
         font-weight: 400;
@@ -291,15 +339,15 @@ body:before {
         align-items: center;
         padding-top: 30px; }
         .container .cards .youtube .today i {
-          color: #dc414c;
+          color: var(--color-down);
           font-size: 12px;
           padding-right: 6px; }
         .container .cards .youtube .today span {
-          color: #dc414c;
+          color: var(--color-down);
           font-size: 12px;
           font-weight: 700; }
   .container h2 {
-    color: #63687e;
+    color: var(--subtext);
     font-size: 22px;
     font-weight: 700;
     grid-column: 1;
@@ -322,7 +370,7 @@ body:before {
       grid-row: 1;
       width: 270px;
       box-sizing: border-box;
-      background-color: #f0f2fa;
+      background-color: var(--bg-card);
       height: 115px;
       border-radius: 5px;
       padding: 20px 35px; }
@@ -332,7 +380,7 @@ body:before {
         justify-content: space-between;
         align-items: center; }
         .container .cardsOverview .smallCard-fa .cardTop .cardHeading {
-          color: #63687e;
+          color: var(--subtext);
           font-size: 14px;
           font-weight: 700;
           justify-self: start;
@@ -341,7 +389,7 @@ body:before {
           grid-column: 1;
           grid-row: 1; }
         .container .cardsOverview .smallCard-fa .cardTop i {
-          color: deepskyblue;
+          color: var(--color-facebook);
           font-size: 25px;
           padding-right: 8px; }
       .container .cardsOverview .smallCard-fa .cardBottom {
@@ -351,7 +399,7 @@ body:before {
         align-items: center;
         padding-top: 18px; }
         .container .cardsOverview .smallCard-fa .cardBottom .cardNumber {
-          color: #1e202a;
+          color: var(--main-text);
           font-size: 28px;
           font-weight: 700;
           letter-spacing: 1px;
@@ -363,18 +411,18 @@ body:before {
           align-items: center;
           padding-top: 3px; }
           .container .cardsOverview .smallCard-fa .cardBottom .upDown i {
-            color: #1db489;
+            color: var(--color-up);
             font-size: 12px;
             padding-right: 6px; }
           .container .cardsOverview .smallCard-fa .cardBottom .upDown span {
-            color: #1db489;
+            color: var(--color-up);
             font-size: 12px;
             font-weight: 700; }
     .container .cardsOverview .smallCard-fa2 {
       grid-column: 2;
       grid-row: 1;
       box-sizing: border-box;
-      background-color: #f0f2fa;
+      background-color: var(--bg-card);
       height: 115px;
       border-radius: 5px;
       padding: 20px 35px; }
@@ -384,14 +432,14 @@ body:before {
         justify-content: space-between;
         align-items: center; }
         .container .cardsOverview .smallCard-fa2 .cardTop .cardHeading {
-          color: #63687e;
+          color: var(--subtext);
           font-size: 14px;
           font-weight: 700;
           justify-self: start;
           align-self: center;
           letter-spacing: 0.2px; }
         .container .cardsOverview .smallCard-fa2 .cardTop i {
-          color: deepskyblue;
+          color: var(--color-facebook);
           font-size: 25px;
           padding-right: 8px; }
       .container .cardsOverview .smallCard-fa2 .cardBottom {
@@ -401,7 +449,7 @@ body:before {
         align-items: center;
         padding-top: 18px; }
         .container .cardsOverview .smallCard-fa2 .cardBottom .cardNumber {
-          color: #1e202a;
+          color: var(--main-text);
           font-size: 28px;
           font-weight: 700;
           letter-spacing: 1px;
@@ -413,18 +461,18 @@ body:before {
           align-items: center;
           padding-top: 3px; }
           .container .cardsOverview .smallCard-fa2 .cardBottom .upDown i {
-            color: #dc414c;
+            color: var(--color-down);
             font-size: 12px;
             padding-right: 6px; }
           .container .cardsOverview .smallCard-fa2 .cardBottom .upDown span {
-            color: #dc414c;
+            color: var(--color-down);
             font-size: 12px;
             font-weight: 700; }
     .container .cardsOverview .smallCard-inst {
       grid-column: 3;
       grid-row: 1;
       box-sizing: border-box;
-      background-color: #f0f2fa;
+      background-color: var(--bg-card);
       height: 115px;
       border-radius: 5px;
       padding: 20px 35px; }
@@ -434,7 +482,7 @@ body:before {
         justify-content: space-between;
         align-items: center; }
         .container .cardsOverview .smallCard-inst .cardTop .cardHeading {
-          color: #63687e;
+          color: var(--subtext);
           font-size: 14px;
           font-weight: 700;
           justify-self: start;
@@ -444,7 +492,7 @@ body:before {
           font-size: 25px;
           padding-right: 8px;
           color: #DF4996;
-          background: linear-gradient(to right, #FDC468, #DF4996);
+          background: var(--color-instagram);
           -webkit-background-clip: text;
           -moz-background-clip: text;
           -webkit-text-fill-color: transparent;
@@ -456,7 +504,7 @@ body:before {
         align-items: center;
         padding-top: 18px; }
         .container .cardsOverview .smallCard-inst .cardBottom .cardNumber {
-          color: #1e202a;
+          color: var(--main-text);
           font-size: 28px;
           font-weight: 700;
           letter-spacing: 1px;
@@ -468,18 +516,18 @@ body:before {
           align-items: center;
           padding-top: 3px; }
           .container .cardsOverview .smallCard-inst .cardBottom .upDown i {
-            color: #1db489;
+            color: var(--color-up);
             font-size: 12px;
             padding-right: 6px; }
           .container .cardsOverview .smallCard-inst .cardBottom .upDown span {
-            color: #1db489;
+            color: var(--color-up);
             font-size: 12px;
             font-weight: 700; }
     .container .cardsOverview .smallCard-inst2 {
       grid-column: 4;
       grid-row: 1;
       box-sizing: border-box;
-      background-color: #f0f2fa;
+      background-color: var(--bg-card);
       height: 115px;
       border-radius: 5px;
       padding: 20px 35px; }
@@ -489,7 +537,7 @@ body:before {
         justify-content: space-between;
         align-items: center; }
         .container .cardsOverview .smallCard-inst2 .cardTop .cardHeading {
-          color: #63687e;
+          color: var(--subtext);
           font-size: 14px;
           font-weight: 700;
           justify-self: start;
@@ -499,7 +547,7 @@ body:before {
           font-size: 25px;
           padding-right: 8px;
           color: #DF4996;
-          background: linear-gradient(to right, #FDC468, #DF4996);
+          background: var(--color-instagram);
           -webkit-background-clip: text;
           -moz-background-clip: text;
           -webkit-text-fill-color: transparent;
@@ -511,7 +559,7 @@ body:before {
         align-items: center;
         padding-top: 18px; }
         .container .cardsOverview .smallCard-inst2 .cardBottom .cardNumber {
-          color: #1e202a;
+          color: var(--main-text);
           font-size: 28px;
           font-weight: 700;
           letter-spacing: 1px;
@@ -523,18 +571,18 @@ body:before {
           align-items: center;
           padding-top: 3px; }
           .container .cardsOverview .smallCard-inst2 .cardBottom .upDown i {
-            color: #1db489;
+            color: var(--color-up);
             font-size: 12px;
             padding-right: 6px; }
           .container .cardsOverview .smallCard-inst2 .cardBottom .upDown span {
-            color: #1db489;
+            color: var(--color-up);
             font-size: 12px;
             font-weight: 700; }
     .container .cardsOverview .smallCard-tw {
       grid-column: 1;
       grid-row: 2;
       box-sizing: border-box;
-      background-color: #f0f2fa;
+      background-color: var(--bg-card);
       height: 115px;
       border-radius: 5px;
       padding: 20px 35px; }
@@ -544,14 +592,14 @@ body:before {
         justify-content: space-between;
         align-items: center; }
         .container .cardsOverview .smallCard-tw .cardTop .cardHeading {
-          color: #63687e;
+          color: var(--subtext);
           font-size: 14px;
           font-weight: 700;
           justify-self: start;
           align-self: center;
           letter-spacing: 0.2px; }
         .container .cardsOverview .smallCard-tw .cardTop i {
-          color: #1ca0f2;
+          color: var(--color-twitter);
           font-size: 25px;
           padding-right: 8px; }
       .container .cardsOverview .smallCard-tw .cardBottom {
@@ -561,7 +609,7 @@ body:before {
         align-items: center;
         padding-top: 18px; }
         .container .cardsOverview .smallCard-tw .cardBottom .cardNumber {
-          color: #1e202a;
+          color: var(--main-text);
           font-size: 28px;
           font-weight: 700;
           letter-spacing: 1px;
@@ -573,18 +621,18 @@ body:before {
           align-items: center;
           padding-top: 3px; }
           .container .cardsOverview .smallCard-tw .cardBottom .upDown i {
-            color: #1db489;
+            color: var(--color-up);
             font-size: 12px;
             padding-right: 6px; }
           .container .cardsOverview .smallCard-tw .cardBottom .upDown span {
-            color: #1db489;
+            color: var(--color-up);
             font-size: 12px;
             font-weight: 700; }
     .container .cardsOverview .smallCard-tw2 {
       grid-column: 2;
       grid-row: 2;
       box-sizing: border-box;
-      background-color: #f0f2fa;
+      background-color: var(--bg-card);
       height: 115px;
       border-radius: 5px;
       padding: 20px 35px; }
@@ -594,14 +642,14 @@ body:before {
         justify-content: space-between;
         align-items: center; }
         .container .cardsOverview .smallCard-tw2 .cardTop .cardHeading {
-          color: #63687e;
+          color: var(--subtext);
           font-size: 14px;
           font-weight: 700;
           justify-self: start;
           align-self: center;
           letter-spacing: 0.2px; }
         .container .cardsOverview .smallCard-tw2 .cardTop i {
-          color: #1ca0f2;
+          color: var(--color-twitter);
           font-size: 25px;
           padding-right: 8px; }
       .container .cardsOverview .smallCard-tw2 .cardBottom {
@@ -611,7 +659,7 @@ body:before {
         align-items: center;
         padding-top: 18px; }
         .container .cardsOverview .smallCard-tw2 .cardBottom .cardNumber {
-          color: #1e202a;
+          color: var(--main-text);
           font-size: 28px;
           font-weight: 700;
           letter-spacing: 1px;
@@ -623,18 +671,18 @@ body:before {
           align-items: center;
           padding-top: 3px; }
           .container .cardsOverview .smallCard-tw2 .cardBottom .upDown i {
-            color: #1db489;
+            color: var(--color-up);
             font-size: 12px;
             padding-right: 6px; }
           .container .cardsOverview .smallCard-tw2 .cardBottom .upDown span {
-            color: #1db489;
+            color: var(--color-up);
             font-size: 12px;
             font-weight: 700; }
     .container .cardsOverview .smallCard-yt {
       grid-column: 3;
       grid-row: 2;
       box-sizing: border-box;
-      background-color: #f0f2fa;
+      background-color: var(--bg-card);
       height: 115px;
       border-radius: 5px;
       padding: 20px 35px; }
@@ -644,14 +692,14 @@ body:before {
         justify-content: space-between;
         align-items: center; }
         .container .cardsOverview .smallCard-yt .cardTop .cardHeading {
-          color: #63687e;
+          color: var(--subtext);
           font-size: 14px;
           font-weight: 700;
           justify-self: start;
           align-self: center;
           letter-spacing: 0.2px; }
         .container .cardsOverview .smallCard-yt .cardTop i {
-          color: #c4032a;
+          color: var(--color-youtube);
           font-size: 25px;
           padding-right: 8px; }
       .container .cardsOverview .smallCard-yt .cardBottom {
@@ -661,7 +709,7 @@ body:before {
         align-items: center;
         padding-top: 18px; }
         .container .cardsOverview .smallCard-yt .cardBottom .cardNumber {
-          color: #1e202a;
+          color: var(--main-text);
           font-size: 28px;
           font-weight: 700;
           letter-spacing: 1px;
@@ -673,18 +721,18 @@ body:before {
           align-items: center;
           padding-top: 3px; }
           .container .cardsOverview .smallCard-yt .cardBottom .upDown i {
-            color: #dc414c;
+            color: var(--color-down);
             font-size: 12px;
             padding-right: 6px; }
           .container .cardsOverview .smallCard-yt .cardBottom .upDown span {
-            color: #dc414c;
+            color: var(--color-down);
             font-size: 12px;
             font-weight: 700; }
     .container .cardsOverview .smallCard-yt2 {
       grid-column: 4;
       grid-row: 2;
       box-sizing: border-box;
-      background-color: #f0f2fa;
+      background-color: var(--bg-card);
       height: 115px;
       border-radius: 5px;
       padding: 20px 35px; }
@@ -694,14 +742,14 @@ body:before {
         justify-content: space-between;
         align-items: center; }
         .container .cardsOverview .smallCard-yt2 .cardTop .cardHeading {
-          color: #63687e;
+          color: var(--subtext);
           font-size: 14px;
           font-weight: 700;
           justify-self: start;
           align-self: center;
           letter-spacing: 0.2px; }
         .container .cardsOverview .smallCard-yt2 .cardTop i {
-          color: #c4032a;
+          color: var(--color-youtube);
           font-size: 25px;
           padding-right: 8px; }
       .container .cardsOverview .smallCard-yt2 .cardBottom {
@@ -711,7 +759,7 @@ body:before {
         align-items: center;
         padding-top: 18px; }
         .container .cardsOverview .smallCard-yt2 .cardBottom .cardNumber {
-          color: #1e202a;
+          color: var(--main-text);
           font-size: 28px;
           font-weight: 700;
           letter-spacing: 1px;
@@ -723,49 +771,54 @@ body:before {
           align-items: center;
           padding-top: 3px; }
           .container .cardsOverview .smallCard-yt2 .cardBottom .upDown i {
-            color: #dc414c;
+            color: var(--color-down);
             font-size: 12px;
             padding-right: 6px; }
           .container .cardsOverview .smallCard-yt2 .cardBottom .upDown span {
-            color: #dc414c;
+            color: var(--color-down);
             font-size: 12px;
             font-weight: 700; }
   .container .facebook:hover {
-    background-color: #e2e4e4;
+    background-color: var(--bg-hover);
     cursor: pointer; }
   .container .twitter:hover {
-    background-color: #e2e4e4;
+    background-color: var(--bg-hover);
     cursor: pointer; }
   .container .instagram:hover {
-    background-color: #e2e4e4;
+    background-color: var(--bg-hover);
     cursor: pointer; }
   .container .youtube:hover {
-    background-color: #e2e4e4;
+    background-color: var(--bg-hover);
     cursor: pointer; }
   .container .smallCard-fa:hover {
-    background-color: #e2e4e4;
+    background-color: var(--bg-hover);
     cursor: pointer; }
   .container .smallCard-fa2:hover {
-    background-color: #e2e4e4;
+    background-color: var(--bg-hover);
     cursor: pointer; }
   .container .smallCard-inst:hover {
-    background-color: #e2e4e4;
+    background-color: var(--bg-hover);
     cursor: pointer; }
   .container .smallCard-inst2:hover {
-    background-color: #e2e4e4;
+    background-color: var(--bg-hover);
     cursor: pointer; }
   .container .smallCard-tw:hover {
-    background-color: #e2e4e4;
+    background-color: var(--bg-hover);
     cursor: pointer; }
   .container .smallCard-tw2:hover {
-    background-color: #e2e4e4;
+    background-color: var(--bg-hover);
     cursor: pointer; }
   .container .smallCard-yt:hover {
-    background-color: #e2e4e4;
+    background-color: var(--bg-hover);
     cursor: pointer; }
   .container .smallCard-yt2:hover {
-    background-color: #e2e4e4;
+    background-color: var(--bg-hover);
     cursor: pointer; }
+
+.attribution {
+  color: var(--main-text);
+  font-size: 15px;
+  text-align: center; }
 
 @media only screen and (max-width: 375px) {
   body:before {
@@ -778,19 +831,18 @@ body:before {
     max-width: 350px; }
     .container .sub-header {
       padding-bottom: 25px; }
-    .container .toggle {
+    .container .theme-switch-wrapper {
       grid-column: 1;
       grid-row: 1;
       justify-self: stretch;
       align-self: flex-end;
-      border-top: 0.5px solid #63687e; }
-      .container .toggle .toggleText {
+      border-top: 0.5px solid var(--subtext); }
+      .container .theme-switch-wrapper p {
         padding-right: 170px;
         margin-top: 10px;
-        color: #63687e; }
-      .container .toggle .switch {
-        width: 45px;
-        margin-top: 10px; }
+        color: var(--subtext); }
+    .container .theme-switch {
+      margin-top: 10px; }
     .container .cards {
       grid-column: 1;
       grid-row: 2 / span 5;
