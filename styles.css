@@ -15,7 +15,8 @@
   --bg-hover:hsl(180, 2%, 89%);
   --main-text:hsl(230, 17%, 14%);
   --subtext: hsl(228, 12%, 44%);
-  --toggler:hsl(230, 22%, 74%); }
+  --toggler:hsl(230, 22%, 74%);
+  --mode-overview-text:hsl(228, 12%, 44%); }
 
 [data-theme="dark"] {
   --color-facebook: hsl(195, 100%, 50%);
@@ -24,13 +25,14 @@
   --color-youtube: hsl(348, 97%, 39%);
   --color-up:hsl(163, 72%, 41%);
   --color-down: hsl(356, 69%, 56%);
-  --subtext: hsl(228, 12%, 44%);
+  --subtext: hsl(228, 34%, 66%);
   --bg-card:hsl(228, 28%, 20%);
   --bg-body: hsl(230, 17%, 14%);
   --bg-body-top: hsl(232, 19%, 15%);
   --bg-hover:hsl(228, 27%, 33%);
   --main-text: white;
-  --toggler: linear-gradient(to right, rgb(55, 142, 230), rgb(62, 218, 129)); }
+  --toggler: linear-gradient(to right, rgb(55, 142, 230), rgb(62, 218, 129));
+  --mode-overview-text:white; }
 
 body {
   background-color: var(--bg-body);
@@ -82,7 +84,7 @@ body:before {
     grid-row: 1;
     justify-self: end;
     align-self: baseline;
-    color: var(--subtext);
+    color: var(--mode-overview-text);
     display: flex;
     flex-flow: row;
     justify-content: center; }
@@ -118,14 +120,14 @@ body:before {
     bottom: 4px;
     content: "";
     height: 22px;
-    left: 4px;
+    right: 4px;
     position: absolute;
     transition: .4s;
     width: 23px; }
   .container input:checked + .slider {
     background-color: var(--toggler); }
   .container input:checked + .slider:before {
-    transform: translateX(26px); }
+    transform: translateX(-26px); }
   .container .slider.round {
     border-radius: 34px; }
   .container .slider.round:before {
@@ -347,7 +349,7 @@ body:before {
           font-size: 12px;
           font-weight: 700; }
   .container h2 {
-    color: var(--subtext);
+    color: var(--mode-overview-text);
     font-size: 22px;
     font-weight: 700;
     grid-column: 1;
@@ -818,9 +820,12 @@ body:before {
 .attribution {
   color: var(--main-text);
   font-size: 15px;
-  text-align: center; }
+  text-align: center;
+  color: var(--main-text); }
+  .attribution a {
+    color: var(--subtext); }
 
-@media only screen and (max-width: 375px) {
+@media (min-width: 375px) and (max-width: 767px) {
   body:before {
     bottom: 92.5%; }
 
@@ -862,7 +867,15 @@ body:before {
         grid-column: 1;
         grid-row: 3;
         width: 320px;
-        height: 250px; }
+        height: 250px;
+        box-sizing: border-box;
+        height: 250px;
+        border-radius: 5px;
+        padding: 30px 50px;
+        background-color: var(--bg-card);
+        border-top: 5px solid;
+        border-image: var(--color-instagram);
+        border-image-slice: 1; }
       .container .cards .youtube {
         grid-column: 1;
         grid-row: 4;
