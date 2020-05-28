@@ -825,7 +825,7 @@ body:before {
   .attribution a {
     color: var(--subtext); }
 
-@media (min-width: 375px) and (max-width: 767px) {
+@media (min-width: 320px) and (max-width: 767px) {
   body:before {
     bottom: 92.5%; }
 
